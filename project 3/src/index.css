@@ -1,0 +1,851 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "DM Sans:Regular";
+  src: url("https://static.figma.com/font/DMSans_opsz_wght__1") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Inter:Regular";
+  src: url("https://static.figma.com/font/Inter_1") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Lato:Bold";
+  src: url("https://static.figma.com/font/Lato-Bold_1") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Lato:ExtraBold";
+  src: url("https://static.figma.com/font/Lato-ExtraBold_1") format("woff2");
+  font-style: normal;
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Lato:Regular";
+  src: url("https://static.figma.com/font/Lato-Regular_1") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root {
+  color: #202833;
+  background: #f8f8f8;
+  font-synthesis: none;
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    min-width: 320px;
+    min-height: 100dvh;
+    background: #f8f8f8;
+    font-family: "Inter:Regular", Arial, sans-serif;
+  }
+
+  button,
+  a {
+    cursor: pointer;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #d0a64f;
+    outline-offset: 3px;
+  }
+}
+
+.site-shell {
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+.site-header {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  height: 76px;
+  justify-content: space-between;
+  padding: 15px 3.9vw;
+  position: relative;
+  z-index: 20;
+}
+
+.logo-button,
+.logo-button img {
+  display: block;
+}
+
+.desktop-nav {
+  align-items: center;
+  display: flex;
+  gap: clamp(24px, 3.2vw, 58px);
+}
+
+.desktop-nav > button:not(.pill-button) {
+  color: #000;
+  font-family: "Lato:Regular", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 20px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.desktop-nav > button:not(.pill-button)::after,
+.footer-column button::after {
+  background: #d0a64f;
+  bottom: -6px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+  width: 100%;
+}
+
+.desktop-nav > button:hover::after,
+.desktop-nav > button.active::after,
+.footer-column button:hover::after {
+  transform: scaleX(1);
+}
+
+.desktop-nav > button.active {
+  font-family: "Lato:ExtraBold", sans-serif;
+}
+
+.pill-button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-family: "Lato:Bold", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: 2.8px;
+  line-height: 20px;
+  min-height: 46px;
+  padding: 12px 28px;
+  text-transform: uppercase;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.pill-button:hover {
+  transform: translateY(-2px);
+}
+
+.pill-button--gold {
+  background: #8a6500;
+  color: #fff;
+}
+
+.pill-button--gold:hover {
+  background: #705200;
+}
+
+.pill-button--light {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.pill-button--light:hover,
+.pill-button--outline:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #081d3d;
+}
+
+.pill-button--outline {
+  border-color: #f1f1f0;
+  color: #f1f1f0;
+}
+
+.hero {
+  align-items: center;
+  display: flex;
+  height: 735px;
+  position: relative;
+}
+
+.hero-image,
+.hero-shade {
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.hero-image {
+  object-fit: cover;
+  object-position: center 48%;
+}
+
+.hero-shade {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 658px;
+  padding: 0 3.9vw;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1,
+.mandate h2,
+.opportunity h2 {
+  font-family: "DM Sans:Regular", sans-serif;
+  font-weight: 400;
+  font-variation-settings: "opsz" 14;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 60px;
+  letter-spacing: 0;
+  line-height: 60px;
+}
+
+.hero-content > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero p {
+  color: #eae0c8;
+  font-family: "DM Sans:Regular", sans-serif;
+  font-size: 20px;
+  font-variation-settings: "opsz" 14;
+  line-height: 28px;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.section-block,
+.content-width {
+  margin-left: auto;
+  margin-right: auto;
+  width: min(calc(100% - 7.8vw), 1331px);
+}
+
+.mandate {
+  padding: 112px min(7.9vw, 114px);
+  text-align: center;
+  width: min(calc(100% - 7.8vw), 1331px);
+}
+
+.mandate h2 {
+  font-size: 44px;
+  line-height: 48px;
+  margin-bottom: 16px;
+}
+
+.mandate p,
+.focus-copy p,
+.section-heading p,
+.strategy-card p,
+.opportunity p {
+  color: #000;
+  font-family: "Inter:Regular", sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.focus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.focus-row {
+  align-items: center;
+  display: flex;
+  gap: clamp(56px, 7.8vw, 112px);
+  padding: 56px;
+}
+
+.focus-row--reverse {
+  flex-direction: row-reverse;
+}
+
+.focus-copy {
+  flex: 1;
+}
+
+.focus-copy h3,
+.section-heading h3 {
+  font-family: "DM Sans:Regular", sans-serif;
+  font-size: 28px;
+  font-variation-settings: "opsz" 14;
+  font-weight: 400;
+  line-height: 32px;
+  margin-bottom: 16px;
+}
+
+.focus-row > img {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 220px;
+  object-fit: cover;
+  width: min(34%, 419px);
+}
+
+.multifamily {
+  padding-top: 112px;
+}
+
+.section-heading {
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.strategy-grid {
+  display: grid;
+  gap: 36px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.strategy-card .image-wrap {
+  height: 230px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.strategy-card img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+  width: 100%;
+}
+
+.strategy-card:hover img {
+  transform: scale(1.035);
+}
+
+.strategy-card h4 {
+  font-family: "DM Sans:Regular", sans-serif;
+  font-size: 20px;
+  font-variation-settings: "opsz" 14;
+  font-weight: 400;
+  line-height: 28px;
+  margin-bottom: 12px;
+}
+
+.strategy-card p {
+  line-height: 24px;
+}
+
+.opportunity {
+  align-items: center;
+  background: #081d3d;
+  display: grid;
+  gap: 41px;
+  grid-template-columns: 46% 1fr;
+  margin-top: 112px;
+}
+
+.opportunity > img {
+  height: 533px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.opportunity-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 56px 56px 56px 0;
+}
+
+.opportunity-copy > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.opportunity h2 {
+  color: #f1f1f0;
+  font-size: 44px;
+  line-height: 48px;
+}
+
+.opportunity p {
+  color: #f1f1f0;
+}
+
+footer {
+  background: #fff;
+  border-top: 1px solid rgba(236, 238, 240, 0.8);
+  margin-top: 112px;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 48px;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 80px 48px;
+}
+
+.footer-brand img {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.footer-brand p {
+  color: #525c66;
+  font-family: "Inter:Regular", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  max-width: 320px;
+}
+
+.footer-column {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-column h5 {
+  color: #d0a64f;
+  font-family: "Lato:Bold", sans-serif;
+  font-size: 12px;
+  letter-spacing: 2.4px;
+  line-height: 16px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.footer-column button {
+  color: #444c54;
+  font-family: "Lato:Regular", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  position: relative;
+}
+
+.copyright {
+  border-top: 1px solid #eceef0;
+  color: #444c54;
+  font-family: "Lato:Regular", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 20px max(48px, calc((100% - 1184px) / 2));
+}
+
+.menu-toggle,
+.mobile-nav {
+  display: none;
+}
+
+.dialog-backdrop {
+  align-items: center;
+  background: rgba(6, 17, 32, 0.72);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 24px;
+  position: fixed;
+  z-index: 50;
+}
+
+.dialog {
+  background: #f8f8f8;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+  max-height: calc(100dvh - 48px);
+  max-width: 620px;
+  overflow: auto;
+  padding: 52px;
+  position: relative;
+  width: 100%;
+}
+
+.dialog-close {
+  color: #525c66;
+  font-family: Arial, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  position: absolute;
+  right: 22px;
+  top: 18px;
+}
+
+.eyebrow,
+.success-message > span {
+  color: #8a6500;
+  display: block;
+  font-family: "Lato:Bold", sans-serif;
+  font-size: 12px;
+  letter-spacing: 2.4px;
+  line-height: 16px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.dialog h2 {
+  font-family: "DM Sans:Regular", sans-serif;
+  font-size: 38px;
+  font-variation-settings: "opsz" 14;
+  font-weight: 400;
+  line-height: 44px;
+  margin-bottom: 12px;
+}
+
+.dialog > p,
+.success-message p {
+  color: #525c66;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.dialog form {
+  display: grid;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.dialog label {
+  color: #444c54;
+  display: grid;
+  font-family: "Lato:Bold", sans-serif;
+  font-size: 12px;
+  gap: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.dialog input,
+.dialog textarea {
+  background: #fff;
+  border: 1px solid #d6d9dc;
+  color: #202833;
+  font-family: "Inter:Regular", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0;
+  padding: 13px 14px;
+  resize: vertical;
+  text-transform: none;
+  width: 100%;
+}
+
+.dialog form .pill-button {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+.success-message {
+  padding: 18px 0;
+}
+
+.success-message .pill-button {
+  margin-top: 28px;
+}
+
+@media (max-width: 1120px) {
+  .desktop-nav {
+    gap: 20px;
+  }
+
+  .desktop-nav > button:not(.pill-button) {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+  }
+
+  .desktop-nav .pill-button {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    padding-inline: 18px;
+  }
+
+  .focus-row {
+    gap: 48px;
+  }
+
+  .opportunity-copy {
+    padding: 44px 36px 44px 0;
+  }
+
+  .opportunity h2 {
+    font-size: 38px;
+    line-height: 42px;
+  }
+}
+
+@media (max-width: 850px) {
+  .site-header {
+    height: 70px;
+    padding: 12px 24px;
+  }
+
+  .logo-button img {
+    height: 42px;
+    width: auto;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: grid;
+    gap: 5px;
+    padding: 8px 0 8px 8px;
+    width: 32px;
+  }
+
+  .menu-toggle span {
+    background: #081d3d;
+    height: 2px;
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease;
+    width: 24px;
+  }
+
+  .menu-toggle.is-open span:first-child {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.is-open span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-nav {
+    align-items: stretch;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(8, 29, 61, 0.14);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    left: 0;
+    padding: 22px 24px 26px;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    z-index: 19;
+  }
+
+  .mobile-nav > button:not(.pill-button) {
+    border-bottom: 1px solid #eceef0;
+    font-family: "Lato:Regular", sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding: 14px 0;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .mobile-nav .pill-button {
+    margin-top: 16px;
+  }
+
+  .hero {
+    height: min(735px, calc(100dvh - 70px));
+    min-height: 610px;
+  }
+
+  .hero-content {
+    padding: 0 7vw;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 8vw, 58px);
+    line-height: 1;
+  }
+
+  .mandate {
+    padding: 88px 0;
+  }
+
+  .focus-row,
+  .focus-row--reverse {
+    align-items: stretch;
+    flex-direction: column-reverse;
+    gap: 32px;
+    padding: 24px 0;
+  }
+
+  .focus-row > img {
+    height: 300px;
+    width: 100%;
+  }
+
+  .strategy-grid {
+    gap: 52px;
+    grid-template-columns: 1fr;
+  }
+
+  .strategy-card .image-wrap {
+    height: min(52vw, 390px);
+  }
+
+  .opportunity {
+    gap: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .opportunity > img {
+    height: min(70vw, 520px);
+  }
+
+  .opportunity-copy {
+    padding: 56px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    padding-inline: 18px;
+  }
+
+  .hero {
+    min-height: 650px;
+  }
+
+  .hero-image {
+    object-position: 62% center;
+  }
+
+  .hero-content {
+    gap: 38px;
+    padding: 0 24px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    line-height: 44px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .button-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .pill-button {
+    font-size: 12px;
+    letter-spacing: 2.2px;
+    padding-inline: 18px;
+    width: 100%;
+  }
+
+  .section-block,
+  .content-width,
+  .mandate {
+    width: calc(100% - 40px);
+  }
+
+  .mandate {
+    padding: 72px 0;
+  }
+
+  .mandate h2,
+  .opportunity h2 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .focus-list {
+    gap: 48px;
+  }
+
+  .focus-row > img {
+    height: 220px;
+  }
+
+  .multifamily {
+    padding-top: 88px;
+  }
+
+  .strategy-card .image-wrap {
+    height: 230px;
+  }
+
+  .opportunity {
+    margin-top: 88px;
+    width: 100%;
+  }
+
+  .opportunity > img {
+    height: 360px;
+  }
+
+  .opportunity-copy {
+    padding: 48px 24px;
+  }
+
+  footer {
+    margin-top: 88px;
+  }
+
+  .footer-grid {
+    gap: 44px 28px;
+    grid-template-columns: 1fr 1fr;
+    padding: 64px 24px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .copyright {
+    padding: 20px 24px;
+  }
+
+  .dialog-backdrop {
+    padding: 12px;
+  }
+
+  .dialog {
+    max-height: calc(100dvh - 24px);
+    padding: 46px 24px 30px;
+  }
+
+  .dialog h2 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
